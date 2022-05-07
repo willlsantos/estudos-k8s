@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: meu-nginx
+  name: meu-nginx
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: meu-nginx
+  template:
+    metadata:
+      labels:
+        app: meu-nginx
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: nginx
+        resources: 
+          limits: 
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
