@@ -13,6 +13,6 @@ spec:
               image: busybox
               args:
               - /bin/sh
-              - giropops-cron
-              - date; echo Bem Vindo ao Descomplicando Kubernetes - Bora Will ; sleep 30
+              - -c
+              - date; echo Bem Vindo ao Descomplicando Kubernetes - Bora Will ;sleep 30
           restartPolicy: OnFailure
